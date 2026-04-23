@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Auth</title>
+    <style>
+        /* ===== Modern Dark Minimal Theme ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #020617);
+            color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            border: 1px solid #1e293b;
+        }
+
+        /* Grouping Sections without breaking the Form */
+        fieldset {
+            border: none;
+            padding: 0;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        legend {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #38bdf8, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Inputs - Fixed Width & Spacing */
+        input {
+            width: 100%; /* Uniform length */
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid #1e293b;
+            background: #020617;
+            color: #e2e8f0;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 2px rgba(56,189,248,0.2);
+        }
+
+        /* Visual Separator Line */
+        .divider {
+            height: 1px;
+            background: #1e293b;
+            margin-bottom: 25px;
+        }
+
+        /* Button */
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #38bdf8, #6366f1);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56,189,248,0.4);
+        }
+
+        .error-area {
+            margin-top: 15px;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <form method="POST" action="/bouncer">
+
+        <fieldset>
+            <legend>Sign Up</legend>
+            <input type="text" id="username" name="username" placeholder="Username">
+            <input type="text" id="signup_email" name="signup_email" placeholder="Email">
+            <input type="password" id="signup_password" name="signup_password" placeholder="Password">
+        </fieldset>
+
+        <div class="divider"></div>
+
+        <fieldset>
+            <legend>Log In</legend>
+            <input type="text" id="login_email" name="login_email" placeholder="Email">
+            <input type="password" id="login_password" name="login_password" placeholder="Password">
+        </fieldset>
+
+        <button type="submit">Submit All</button>
+    </form>
+
+    <div class="error-area">
+        {{ error }}
+    </div>
+</div>
+
+</body>
+</html>

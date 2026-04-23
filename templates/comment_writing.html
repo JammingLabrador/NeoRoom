@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Crew</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .comment-container {
+            width: 90%;
+            max-width: 800px;
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .button-hyper {
+            margin-top: 15px;
+            padding: 11px 24px;
+            background-color: #00ffcc;
+            color: #121212;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        label {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #00ffcc;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 200px; /* This makes it "a little tall" */
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #333;
+            background-color: #2a2a2a;
+            color: white;
+            font-size: 1rem;
+            resize: vertical;
+            box-sizing: border-box; /* Ensures padding doesn't break width */
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #00ffcc;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 25px;
+            background-color: #00ffcc;
+            color: #121212;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #00cca3;
+            transform: translateY(-2px);
+        }
+
+        .button-hyper:hover {
+            background-color: #00cca3;
+            transform: translateY(-2px);
+        }
+
+        /* This part turns the whole screen dark */
+body {
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+    </style>
+</head>
+<body>
+
+    <div class="comment-container">
+        <form method="POST" action="/">
+            <label for="comment">Drop a comment, join the crew</label>
+            <textarea id="comment" name="comment" placeholder="Write something legendary..."></textarea>
+            <br>
+            <button type="submit">Post Comment</button>
+            <a href="{{ url_for('comment_board') }}" class="button-hyper">View the Comment Board</a>
+
+        </form>
+        <h3>{{ verdict }}</h3>
+    </div>
+
+</body>
+</html>
